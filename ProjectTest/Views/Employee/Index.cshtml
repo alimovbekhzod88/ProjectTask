@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Employee>
+@{
+    Layout = null;
+}
+
+<form asp-controller="Employee" asp-action="Index" method="post" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <hr />
+    <button type="submit">Upload</button>
+</form>
+
+@if (Model.Count() > 0)
+{
+
+
+    <hr /><table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+                <td>Payroll_Number</td>
+                <td>Forenames</td>
+                <td>Surname</td>
+                <td>Date_Of_Birth</td>
+                <td>Telephone</td>
+                <td>Mobile</td>
+                <td>Address_Name</td>
+                <td>Address_2</td>
+                <td>Postcode</td>
+                <td>Email_Home</td>
+                <td>Start_Date</td>
+            </tr>
+            @foreach (Employee employee in Model)
+             {
+                 <tr>
+                     <td>@employee.Payroll_Number</td>
+                     <td>@employee.Forenames</td>
+                     <td>@employee.Surname</td>
+                     <td>@employee.Date_Of_Birth</td>
+                     <td>@employee.Telephone</td>
+                     <td>@employee.Mobile</td>
+                     <td>@employee.Address_Name</td>
+                     <td>@employee.Address_2</td>
+                     <td>@employee.Postcode</td>
+                     <td>@employee.Email_Home</td>
+                     <td>@employee.Start_Date</td>
+
+                 </tr>
+             }
+        </table>
+}
